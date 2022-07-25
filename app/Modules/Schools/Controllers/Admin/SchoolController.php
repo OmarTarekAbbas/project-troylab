@@ -11,10 +11,11 @@ class SchoolController extends Controller
 {
     public function index(Request $request)
     {
-        
+
     }
 
     public function Show(Request $request)
     {
+        
     }
 }
