@@ -16,6 +16,8 @@ class SchoolController extends Controller
 
     public function Show(Request $request)
     {
+
+
         
     }
 }
