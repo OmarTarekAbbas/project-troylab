@@ -7,13 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
+    use HasFactory;
 
     /* Telling Laravel that the table name is students. */
     protected $table = 'students';
 
     /* Telling Laravel that the only field that can be filled in the database is the name field. */
     protected $fillable = [
-        'name','school_id','order'
+        'name', 'school_id', 'order'
     ];
 
     /**
