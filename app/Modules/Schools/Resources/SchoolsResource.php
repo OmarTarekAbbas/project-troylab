@@ -6,7 +6,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class SchoolsResource extends JsonResource
 {
-
     /**
      * Transform the resource into an array.
      *

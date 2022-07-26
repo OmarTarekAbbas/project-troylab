@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-
-class DatabaseSeeder extends Seeder
+use App\Modules\Schools\Models\School;
+class SchoolSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -13,8 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        $this->call(InventorySeeder::class);
+        School::factory(3)->create();
     }
 }

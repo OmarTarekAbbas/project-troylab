@@ -2,11 +2,13 @@
 
 namespace App\Modules\Schools\Services;
 
+
+use App\Http\Services\Services;
 use App\Modules\Schools\Repositories\SchoolsRepository;
 
-class SchoolsService
-{
 
+class SchoolsService extends Services
+{
     /**
      * Main Repository
      *

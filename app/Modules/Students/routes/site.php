@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Modules\Schools\Controllers\Site\SchoolController;
+use App\Modules\Students\Controllers\Site\StudentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +14,7 @@ use App\Modules\Schools\Controllers\Site\SchoolController;
 */
 
 
-/* Creating a route for the index method in the SchoolController class. */
-Route::get("schools",  [SchoolController::class, 'index']);
-/* Creating a route for the show method in the SchoolController class. */
-Route::get("schools/{id}",  [SchoolController::class, 'show']);
+/* Creating a route for the index method in the StudentsController class. */
+Route::get("students",  [StudentsController::class, 'index']);
+/* Creating a route for the show method in the StudentsController class. */
+Route::get("students/{id}",  [StudentsController::class, 'show']);

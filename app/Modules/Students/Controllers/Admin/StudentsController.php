@@ -1,37 +1,37 @@
 <?php
 
-namespace App\Modules\Schools\Controllers\Admin;
+namespace App\Modules\Students\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Modules\Schools\Repositories\SchoolsRepository;
-use App\Modules\Schools\Services\SchoolsService;
-use App\Modules\Schools\Resources\SchoolsResource as Resource;
+use App\Modules\Students\Repositories\StudentsRepository;
+use App\Modules\Students\Services\StudentsService;
+use App\Modules\Students\Resources\StudentsResource as Resource;
 use Illuminate\Support\Facades\Validator;
 
-class SchoolController extends Controller
+class StudentsController extends Controller
 {
     /**
      * The function __construct() is a magic method that is called when a new object is created. It is
      * used to initialize the object's properties
      *
-     * @param SchoolsRepository schoolsRepository This is the repository that will be used to access
+     * @param StudentsRepository studentsRepository This is the repository that will be used to access
      * the database.
-     * @param SchoolsService schoolsService This is the service class that will be used to perform the
+     * @param StudentsService studentsService This is the service class that will be used to perform the
      * business logic.
      */
-    public function __construct(SchoolsRepository $schoolsRepository, SchoolsService $schoolsService)
+    public function __construct(StudentsRepository $studentsRepository, StudentsService $studentsService)
     {
-        $this->repository  = $schoolsRepository;
-        $this->service  = $schoolsService;
+        $this->repository  = $studentsRepository;
+        $this->service  = $studentsService;
     }
 
     /**
-     * It returns a collection of all the schools in the database
+     * It returns a collection of all the Students in the database
      *
      * @param Request request This is the request object that is sent to the API.
      *
-     * @return A collection of all the schools in the database.
+     * @return A collection of all the Students in the database.
      */
     public function index(Request $request)
     {
@@ -52,8 +52,8 @@ class SchoolController extends Controller
         if (!$validator->passes()) {
             return $this->service->badRequest($validator);
         }
-        $createSchool = $this->repository->create($request);
-        return $this->service->success($createSchool);
+        $createStudent = $this->repository->create($request);
+        return $this->service->success($createStudent);
     }
 
     /**
@@ -66,18 +66,18 @@ class SchoolController extends Controller
      */
     public function show(Request $request, $id)
     {
-        $getSchool = $this->repository->get($id);
+        $getStudent = $this->repository->get($id);
 
-        if (!$getSchool) {
+        if (!$getStudent) {
             return $this->service->notFound();
         }
-        return $this->service->success($getSchool);
+        return $this->service->success($getStudent);
     }
 
     /**
-     * It updates a school with the given id
+     * It updates a Student with the given id
      *
-     * @param id The id of the school you want to update.
+     * @param id The id of the Student you want to update.
      * @param Request request The request object.
      *
      * @return the result of the update function in the repository.
@@ -90,8 +90,8 @@ class SchoolController extends Controller
             return $this->service->badRequest($validator);
         }
         if ($this->repository->get($id)) {
-            $updateSchool = $this->repository->update($id, $request);
-            return $this->service->success($updateSchool);
+            $updateStudent = $this->repository->update($id, $request);
+            return $this->service->success($updateStudent);
         }
         return $this->service->notFound();
     }
@@ -124,6 +124,7 @@ class SchoolController extends Controller
     {
         return Validator::make($request->all(), [
             'name' => ['required', 'string', 'min:1', 'max:255'],
+            'school_id' => 'required|exists:schools,id', 'integer',
         ]);
     }
 }
