@@ -33,7 +33,7 @@ Done, You're ready to go
 
 `php artisan serve`
 
-collections PostMan.
+## collections PostMan.
 
 `https://www.getpostman.com/collections/da8b54a7b84b68c84a51`
 
@@ -41,6 +41,6 @@ make unit test api for laravel
 
 `php artisan test`
 
-If you want to look at the code in the file
+## If you want to look at the code in the file
 
 `cd app\Modules`
